@@ -1,4 +1,4 @@
-#Generador de aplicaciones: generator-frontend
+#GeneratorFrontend
 
 >Generador de aplicaciones frontend con AngularJS empleado la arquitectura SinglePage
 
@@ -17,7 +17,8 @@ Principales características
 * Integrates LESS and includes Bootstrap via the source LESS files allowing you to reuse Bootstrap vars/mixins/etc.
 * Easily Testable - Each sub-generator creates a skeleton unit test.  Unit tests can be run via `grunt test` and they run automatically during the grunt watch that is active during `grunt serve`.
 
-Directory Layout
+
+Directorio de la aplicación
 -------------
 All subgenerators prompt the user to specify where to save the new files.  Thus you can create any directory structure you desire, including nesting.  The generator will create a handful of files in the root of your project including `index.html`, `app.js`, and `app.less`.  You determine how the rest of the project will be structured.
 
@@ -152,18 +153,6 @@ Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing
 * To prevent a script or link tag from being removed from the finalized `index.html`, use a `data-remove="false"` attribute.
 
 
-Release History
+Historia de liberación
 -------------
-* 7/6/2014 - v3.1.2 - Fix for directive template URLs with backslashes on Windows.
-* 6/10/2014 - v3.1.1 - Fix for backslashes being used in injected routes/tags on subgenerators.
-* 5/1/2014 - v3.1.0 - New subgenerators for modules and modals.  Replaced grunt-contrib-jasmine with grunt-karma.  Karma allows us to test against actual browsers other than PhantomJS.
-* 3/10/2014 - v3.0.2 - Fix for directive files not being named correctly.  Fix for htmlmin from affecting some Bootstrap styles.
-* 3/03/2014 - v3.0.0 - All subgenerators now ask the user for a directory enabling any user-defined project structure.  Gruntfile has been altered to allow scripts, partials, and LESS files to be located anywhere in the project directory structure.  An option to use `angular-ui-router` is now available when initializing a new project. `js/setup.js` and `css/app.less` moved to `app.js` and `app.less`.  `grunt server` is now `grunt serve`.  Inside `index.html` all user script tags are grouped together instead of split out into groups for services/filters/etc.  New ability to customize the subgenerators.
-* 2/10/2014 - v2.1.1 - Fix for the directive spec file named with a .less extension.
-* 1/06/2014 - v2.1.0 - Nice enhancements for unit testing.  Specs are now placed in the same directory as the component they're testing.  Additionally, unit tests are now run during `grunt server` allowing for an easy and efficient test-driven workflow.
-* 12/30/2013 - v2.0.0 - Big Update.  Angular 1.2 and Bootstrap 3.  Newer versions of Angular UI, Font Awesome, and JQuery.  Lodash was replaced with Underscore.  Lots of other small changes.
-* 9/06/2013 - V1.0.4 - Fixed templating issue with generated specs for `yo cg-angular:service` subgenerator.
-* 8/29/2013 - V1.0.3 - Renamed `/lib` back to `/bower_components` as clarity trumps brevity.  Renamed `/bin` to `/dist`. Fixed spelling error in generated directive's js template location.  Moved up to later version of `yeoman-generator` dependency to solve "Cannot read bold of undefined" error coming from Yeoman.  JSHint options now read from `.jshintrc`.  And more small stuff.
-* 7/08/2013 - V1.0.2 - Added utf8 charset to index.html.  Fix for "EMFile, too many open files" on `grunt watch` by no longer watching the `lib` folder.
-* 6/20/2013 - v1.0.1 - Fixed a ton of known issues.  Replaced `grunt-regarde` with `grunt-contrib-watch`.  Fixed and tweaked the unit test specs and `grunt test`.  Fixed issues with the build.  Generator is now ready for real use.
-* 6/18/2013 - v1.0.0 - Initial release of template as Yeoman generator.
+* 27/08/2014 - v0.0.1 - Se inicia el proyecto del generador de aplicaciones frontend con AngularJS 'GeneratorFrontend'
