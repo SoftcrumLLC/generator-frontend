@@ -1,10 +1,10 @@
-#generator-cg-angular
+#Generador de aplicaciones: generator-frontend
 
->Yeoman Generator for Enterprise Angular Projects
+>Generador de aplicaciones frontend con AngularJS empleado la arquitectura SinglePage
 
 This generator follows the [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
-Features
+Principales características
 
 * Provides a directory structure geared towards large Angular projects.
     * Each controller, service, filter, and directive are placed in their own file.
