@@ -71,39 +71,67 @@ Prerequisitos: Tener instalado Node.js en la máquina donde se desea instalar es
 
 Una vez que ya tengamos instalado Node.js con NPM correctamente procederemos a instalar Grunt, Yeoman y Bower en la máquina.
 
-    npm install -g grunt-cli yo bower   (para realizar una instalación)
-    npm update -g grunt-cli yo bowe     (para realizar una actualización)
+    npm install     -g grunt-cli yo bower   (para realizar una instalación)
+    npm update      -g grunt-cli yo bower   (para realizar una actualización)
 
 Ya realizado el paso anterior, procederemos a realizar la instalación del generador, para ello necesitamos copiar el directorio del proyecto GeneratorFrontend en nuestra máquina y compilar la solución como sigue:
 
-    npm link
+    mkdir   GeneratorFrontend
+    cd      GeneratorFrontend
+    git     init
+    git     clone git://github.com/SoftcrumLLC/generator-frontend.git
+    npm     link
 
 Con esta instrucción tendremos nuestro generador instalado en nuestra máquina sin hacer público su contenido. Para crear un proyecto se necesita realizar los siguientes pasos:
 
-    mkdir   MiProyecto
-    cd      MiProyecto
+    mkdir   {{MiProyecto}}
+    cd      {{MiProyecto}}
     yo      generator-frontend
 
+Nota: Se debe colocar el nombre del proyecto donde se encuentra la variable {{MiProyecto}}.
 
 
-
-
-
-
-
-Grunt Tasks
+Tareas programas con Grunt
 -------------
 
-Now that the project is created, you have 3 simple Grunt commands available:
+Ahora que se ha creado el proyecto, usted posee 3 simples comandos en Grunt disponibles:
 
-    grunt serve   #This will run a development server with watch & livereload enabled.
-    grunt test    #Run local unit tests.
-    grunt build   #Places a fully optimized (minified, concatenated, and more) in /dist
+    grunt serve   (Esta opción se encuentra disponible para el ambiente de desarrollo)
+    grunt test    (Esta opción ejecuta todas las pruebas unitarias y de funcionalidad)
+    grunt build   (Esta opción compila el proyecto creando una carpeta de distribución)
 
-When `grunt serve` is running, any changed javascript files will be linted using JSHint as well as have their appropriate unit tests executed.  Only the unit tests that correspond to the changed file will be run.  This allows for an efficient test driven workflow.
+Cuando `grunt serve` se encuentra en ejecución, los archivos javascript modificados se verifican usando JSHint así como tener sus pruebas unitarias adecuadas ejecutadas. Sólo las pruebas de unidad que se corresponden con el archivo modificado se ejecutarán. Esto permite un flujo de trabajo basado en pruebas eficiente.
 
-Yeoman Subgenerators
+
+Subgeneradores de GeneratorFrontend
 -------------
+
+Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS de manera predeterminada. Cada uno de estos generadores hará lo siguiente: 
+
+* Crear uno o más archivos de esqueleto (javascript, less, html, spec, etc) para el tipo de componente. 
+* Actualizar index.html e incorporar las etiquetas `script` necesarias. 
+* Actualizar app.less e incorporar el `@import` según sea necesario. 
+* Para los parciales, actualizar los app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones. 
+
+Hay generadores para `directive`,` partial`, `service`,` filter`, `module`, y `modal`. 
+
+Ejecución de un generador: 
+
+    yo generator-frontend:directive     my-awesome-directive
+    yo generator-frontend:partial       my-partial
+    yo generator-frontend:service       my-service
+    yo generator-frontend:filter        my-filter
+    yo generator-frontend:module        my-module
+    yo generator-frontend:modal         my-modal
+
+
+El Parámetro del nombre pasado (es decir, 'mi-impresionante-Directiva ») se utilizará como los nombres de los archivos. Los generadores se derivarán nombres genéricos apropiados de este parámetro (ex. 'Mi-impresionante-directiva' se convertirá en un nombre de clase de 'MyAwesomeDirective'). Cada sub-generador le pedirá la carpeta en la que para crear los nuevos archivos de esqueleto. Puede anular la carpeta predeterminada para cada sub-generador en el archivo .yo-rc.json` `. 
+
+El subgenerator modal es un atajo conveniente para crear los parciales que funcionan como verbos modales para Bootstrap v3.1 y Angular-UI-Bootstrap v0.10 (ambos vienen preconfigurados con este generador). Si usted decide no utilizar cualquiera de estas bibliotecas, simplemente no utilice el subgenerator modal. 
+
+Subgenerators también son personalizables. Por favor, lea [CUSTOMIZING.md] (CUSTOMIZING.md) para más detalles.
+
+
 
 There are a set of subgenerators to initialize empty Angular components.  Each of these generators will:
 
@@ -129,15 +157,29 @@ The modal subgenerator is a convenient shortcut to create partials that work as 
 
 Subgenerators are also customizable.  Please read [CUSTOMIZING.md](CUSTOMIZING.md) for details.
 
+
+
+
+
+
+
 Submodules
 -------------
 
 Submodules allow you to more explicitly separate parts of your application.  Use the `yo cg-angular:module my-module` command and specify a new subdirectory to place the module into.  Once you've created a submodule, running other subgenerators will now prompt you to select the module in which to place the new component.
 
+
+
+
+
+
+
 Preconfigured Libraries
 -------------
 
 The new app will have a handful of preconfigured libraries included.  This includes Angular 1.2, Bootstrap 3, AngularUI Bootstrap, AngularUI Utils, FontAwesome 4, JQuery 2, Underscore 1.5, LESS 1.6, and Moment 2.5.  You may of course add to or remove any of these libraries.  But the work to integrate them into the app and into the build process has already been done for you.
+
+
 
 Build Process
 -------------
@@ -166,6 +208,7 @@ Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing
 
 Historia de liberación
 -------------
+* 28/08/2014 - v0.1.0 - Se terminan las moficaciones de configuración de la arquitectura y se procede a definir la instancia de creación de los componentes
 * 28/08/2014 - v0.0.3 - Se modifican las estructuras de los archivos de la carpeta raíz, iniciando la estructura de la arquitectura modular para proyectos frontend
 * 27/08/2014 - v0.0.2 - Se generan los componentes principales de la aplicación
 * 26/08/2014 - v0.0.1 - Se inicia el proyecto del generador de aplicaciones frontend con AngularJS 'GeneratorFrontend'
