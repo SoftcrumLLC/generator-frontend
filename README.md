@@ -6,10 +6,10 @@ Principales características
 -------------
 
 * Proporciona una estructura de directorio orientado a grandes proyectos con AngularJS.
-     * Cada controlador, servicio, filtro, y la directiva se colocan en su propio archivo.
-     * Todos los archivos relacionados con una unidad conceptual se colocan juntos. Por ejemplo, el controlador, HTML, LESS, y prueba unitaria para un parcial se colocan juntos en el mismo directorio.
+   * Cada controlador, servicio, filtro, y la directiva se colocan en su propio archivo.
+   * Todos los archivos relacionados con una unidad conceptual se colocan juntos. Por ejemplo, el controlador, HTML, LESS, y prueba unitaria para un parcial se colocan juntos en el mismo directorio.
 * Proporciona una construcción prefabricada con Grunt que produce una distribución extremadamente optimizada.
-    * Uso del constructor [gruñido-ngmin] (https://github.com/btford/grunt-ngmin) por lo que no tiene que utilizar la sintaxis de inyección de AngularJS para minificación segura (es decir, usted no necesita `$inject` o` (['$scope', '$http', ...`.
+    * Uso del constructor [grunt-ngmin] (https://github.com/btford/grunt-ngmin) por lo que no tiene que utilizar la sintaxis de inyección de AngularJS para minificación segura (es decir, usted no necesita `$inject` o` (['$scope', '$http', ...`.
     * La tarea `grunt serve` le permite ejecutar un servidor de desarrollo sencillo con watch/livereload habilitados. Además, JSHint y las pruebas unitarias correspondientes se ejecutan para los archivos modificados.
 * Se integra Bower para la gestión de paquetes.
 * Incluye subgeneradores Yeoman para directivas, servicios, parciales, filtros y módulos.
