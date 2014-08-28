@@ -22,10 +22,9 @@ Principales características
 Directorio de la aplicación
 -------------
 
-All subgenerators prompt the user to specify where to save the new files.  Thus you can create any directory structure you desire, including nesting.  The generator will create a handful of files in the root of your project including `index.html`, `app.js`, and `app.less`.  You determine how the rest of the project will be structured.
+Todos subgeneradores solicitan al usuario que especifique dónde guardar los archivos nuevos. De esta manera usted puede crear cualquier estructura de directorios que desee, incluyendo anidación. El generador va a crear un grupo de archivos en la raíz de su proyecto, incluyendo `index.html`, `app.js`, y `app.less`. Usted determina cómo se estructurará el resto del proyecto. 
 
-In this example, the user has chosen to group the app into an `admin` folder, a `search` folder, and a `service` folder.
-
+En este ejemplo, el usuario ha optado por agrupar el proyecto en una carpeta `admin`, una carpeta `search`, y una carpeta `service`.
 
     app.less ....................... main app-wide styles
     app.js ......................... angular module initialization and route setup
@@ -69,7 +68,7 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
 Guía de instalación
 -------------
 
-Prerequisitos: Tener instalado Node.js en la máquina donde se desea instalar este generador.
+Prerequisitos: Tener instalado Node.js con NPM en la máquina donde se desea instalar este generador.
 
 Una vez que ya tengamos instalado Node.js con NPM correctamente procederemos a instalar Grunt, Yeoman y Bower en la máquina.
 
@@ -108,19 +107,19 @@ Cuando `grunt serve` se encuentra en ejecución, los archivos javascript modific
 Subgeneradores de GeneratorFrontend
 -------------
 
-Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS de manera predeterminada. Cada uno de estos generadores hará lo siguiente: 
+Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS de manera predeterminada. Cada uno de estos subgeneradores hará lo siguiente: 
 
-* Crear uno o más archivos de esqueleto (javascript, less, html, spec, etc) para el tipo de componente. 
+* Crear uno o más archivos de la arquitectura (javascript, less, html, spec, etc) para el tipo de componente. 
 * Actualizar index.html e incorporar las etiquetas `script` necesarias. 
 * Actualizar app.less e incorporar el `@import` según sea necesario. 
-* Para los parciales, actualizar los app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones. 
+* Para los parciales, actualizar app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones. 
 
-Hay generadores para `directive`, `partial`, `service`, `filter`, `module`, y `modal`. 
+Hay subgeneradores para `directive`, `partial`, `service`, `filter`, `module`, y `modal`. 
 
 Ejecución de un generador: 
 
-    yo generator-frontend:directive     {{my-directiva}}
-    yo generator-frontend:partial       {{my-partial}}
+    yo generator-frontend:directive     {{mi-directiva}}
+    yo generator-frontend:partial       {{mi-partial}}
     yo generator-frontend:service       {{mi-servicio}}
     yo generator-frontend:filter        {{mi-filtro}}
     yo generator-frontend:module        {{mi-modulo}}
@@ -132,32 +131,32 @@ El subgenerador modal es un atajo conveniente para crear el componente que funci
 Creación de submódulos
 -------------
 
-Los submódulos permiten partes más separadas explícitamente en su proyecto. Utilice el comando `yo-cg angular:module mi-modulo` y especifique un nuevo subdirectorio para colocar el módulo. Una vez que se haya creado el submódulo, ahora pedirá que seleccione el módulo en el que colocar el nuevo componente.
+Los submódulos permiten partes más separadas explícitamente en su proyecto. Utilice el comando `yo generator-frontend:module mi-modulo` y especifique un nuevo subdirectorio para colocar el módulo. Una vez que se haya creado el submódulo, ahora pedirá que seleccione el módulo en el cual colocar el nuevo componente.
 
 
 Proceso de compilación del proyecto
 -------------
 
-The project will include a ready-made Grunt build that will:
+El proyecto incluirá una construcción prefabricada mediante Grunt que realizará las siguientes tareas: 
 
-* Build all the LESS files into one minified CSS file.
-* Uses [grunt-angular-templates](https://github.com/ericclemmons/grunt-angular-templates) to turn all your partials into Javascript.
-* Uses [grunt-ngmin](https://github.com/btford/grunt-ngmin) to preprocess all Angular injectable methods and make them minification safe.  Thus you don't have to use the array syntax.
-* Concatenates and minifies all Javascript into one file.
-* Replaces all appropriate script references in `index.html` with the minified CSS and JS files.
-* Minifies any images in `/img`.
-* Minifies the `index.html`.
-* Copies any extra files necessary for a distributable build (ex.  Font-Awesome font files, etc).
+* Generar todos los archivos LESS en un archivo CSS minificado.
+* El uso de [grunt-angular-templates] (https://github.com/ericclemmons/grunt-angular-plantillas) para convertir todos sus parciales en Javascript.
+* El uso de [grunt-ngmin] (https://github.com/btford/grunt-ngmin) a todos los métodos inyectables de AngularJS para realizar una minificación segura. De esta manera usted no tiene que utilizar la sintaxis de matrices.
+* Concatena y minifica los archivos JAVASCRIPT en un solo archivo. 
+* Sustituye a todas las referencias de scripts apropiados en `index.html` con el archivo CSS y JS minificados. 
+* Minifica cualquier imagen en `/ img`. 
+* Minifica el `index.html`. 
+* Copia todos los archivos adicionales necesarios para una construcción distribuida (por ej. Ficheros Font-Awesome, etc). 
 
-The resulting build loads only a few highly compressed files.
+El resultado del proceso de compilación del proyecto genera solo dos archivos minificados CSS y JS. 
 
-The build process uses [grunt-dom-munger](https://github.com/cgross/grunt-dom-munger) to pull script references from the `index.html`.  This means that **your index.html is the single source of truth about what makes up your app**.  Adding a new library, new controller, new directive, etc does not require that you update the build file.  Also the order of the scripts in your `index.html` will be maintained when they're concatenated.
+Los usos de procesos de construcción [grun-dom-munger] (https://github.com/cgross/grunt-dom-munger) para tirar de referencias de script del `index.html`. Esto significa que el archivo index.html es la única fuente de la verdad acerca de lo que constituye su aplicación. Se agrega una nueva biblioteca, nuevo controlador, nueva directiva, etc; no requiere que actualice el archivo de creación. También el orden de las secuencias de comandos en su `index.html` se mantendrá cuando están concatenados. 
 
-Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing of the script and link tags.  Its very easy to exclude certain scripts or stylesheets from the concatenated files. This is often the case if you're using a CDN. This can also be used to prevent certain development scripts from being included in the final build.
+Es importante destacar que, grunt-dom-munger usa CSS selectores de atributos para gestionar el análisis de las etiquetas de script y enlace. Es muy fácil de excluir ciertos scripts u hojas de estilo de los archivos concatenados. Este suele ser el caso si usted está usando un CDN. Esto también puede ser utilizado para prevenir ciertos scripts de desarrollo de ser incluido en la construcción final. 
 
-* To prevent a script or stylesheet from being included in concatenation, put a `data-concat="false"` attribute on the link or script tag.  This is currently applied for the `livereload.js` and `less.js` script tags.
+* Para evitar una secuencia de comandos o de estilos de ser incluido en la concatenación, poner un `'data-concat="false"` en el enlace o etiqueta script. Esto se aplica actualmente para el `livereload.js` y etiquetas script `less.js`. 
 
-* To prevent a script or link tag from being removed from the finalized `index.html`, use a `data-remove="false"` attribute.
+* Para evitar una etiqueta de script o el vínculo de ser retirado de la `index.html` finalizado, use un `'data-remove="false"`.
 
 
 Historia de liberación
