@@ -1,4 +1,7 @@
+# Carpetas omitidas por GitHub
 node_modules/
 temp/
 .DS_Store
+
+# Carpeta del proyecto generada por Webstorm
 .idea/

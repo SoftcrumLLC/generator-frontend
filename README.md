@@ -63,22 +63,33 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
     /bower_component................ 3rd party libraries managed by bower
     /node_modules .................. npm managed libraries used by grunt
 
-Getting Started
+
+Guía de instalación
 -------------
 
-Prerequisites: Node, Grunt, Yeoman, and Bower.  Once Node is installed, do:
+Prerequisitos: Tener instalado Node.js en la máquina donde se desea instalar este generador.
 
-    npm install -g grunt-cli yo bower
+Una vez que ya tengamos instalado Node.js con NPM correctamente procederemos a instalar Grunt, Yeoman y Bower en la máquina.
 
-Next, install this generator:
+    npm install -g grunt-cli yo bower   (para realizar una instalación)
+    npm update -g grunt-cli yo bowe     (para realizar una actualización)
 
-    npm install -g generator-cg-angular
+Ya realizado el paso anterior, procederemos a realizar la instalación del generador, para ello necesitamos copiar el directorio del proyecto GeneratorFrontend en nuestra máquina y compilar la solución como sigue:
 
-To create a project:
+    npm link
 
-    mkdir MyNewAwesomeApp
-    cd MyNewAwesomeApp
-    yo cg-angular
+Con esta instrucción tendremos nuestro generador instalado en nuestra máquina sin hacer público su contenido. Para crear un proyecto se necesita realizar los siguientes pasos:
+
+    mkdir   MiProyecto
+    cd      MiProyecto
+    yo      generator-frontend
+
+
+
+
+
+
+
 
 Grunt Tasks
 -------------
@@ -155,4 +166,6 @@ Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing
 
 Historia de liberación
 -------------
-* 27/08/2014 - v0.0.1 - Se inicia el proyecto del generador de aplicaciones frontend con AngularJS 'GeneratorFrontend'
+* 28/08/2014 - v0.0.3 - Se modifican las estructuras de los archivos de la carpeta raíz, iniciando la estructura de la arquitectura modular para proyectos frontend
+* 27/08/2014 - v0.0.2 - Se generan los componentes principales de la aplicación
+* 26/08/2014 - v0.0.1 - Se inicia el proyecto del generador de aplicaciones frontend con AngularJS 'GeneratorFrontend'
