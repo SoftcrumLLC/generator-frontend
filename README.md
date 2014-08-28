@@ -1,23 +1,20 @@
 #GeneratorFrontend
 
->Generador de aplicaciones frontend con AngularJS empleado la arquitectura SinglePage
->
->Este generador se encuentra desarrollado bajo las buenas prácticas y tendencias en el desarrollo de software web con AngularJS - [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
+Generador de aplicaciones frontend con AngularJS empleado la arquitectura SinglePage. Este generador se encuentra desarrollado bajo las buenas prácticas y tendencias en el desarrollo de software web con AngularJS - [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
 Principales características
 -------------
 
-* Provides a directory structure geared towards large Angular projects.
-    * Each controller, service, filter, and directive are placed in their own file.
-    * All files related to a conceptual unit are placed together.  For example, the controller, HTML, LESS, and unit test for a partial are placed together in the same directory.
-* Provides a ready-made Grunt build that produces an extremely optimized distribution.
-   * Build uses [grunt-ngmin](https://github.com/btford/grunt-ngmin) so you don't have to use the Angular injection syntax for safe minification (i.e. you dont need `$inject` or `(['$scope','$http',...`.
-   * `grunt serve` task allows you to run a simple development server with watch/livereload enabled.  Additionally, JSHint and the appropriate unit tests are run for the changed files.
-* Integrates Bower for package management
-* Includes Yeoman subgenerators for directives, services, partials, filters, and modules.
-* Integrates LESS and includes Bootstrap via the source LESS files allowing you to reuse Bootstrap vars/mixins/etc.
-* Easily Testable - Each sub-generator creates a skeleton unit test.  Unit tests can be run via `grunt test` and they run automatically during the grunt watch that is active during `grunt serve`.
-
+* Proporciona una estructura de directorio orientado a grandes proyectos con AngularJS.
+     * Cada controlador, servicio, filtro, y la directiva se colocan en su propio archivo.
+     * Todos los archivos relacionados con una unidad conceptual se colocan juntos. Por ejemplo, el controlador, HTML, LESS, y prueba unitaria para un parcial se colocan juntos en el mismo directorio.
+* Proporciona una construcción prefabricada con Grunt que produce una distribución extremadamente optimizada.
+    * Uso del constructor [gruñido-ngmin] (https://github.com/btford/grunt-ngmin) por lo que no tiene que utilizar la sintaxis de inyección de AngularJS para minificación segura (es decir, usted no necesita `$inject` o` (['$scope', '$http', ...`.
+    * La tarea `grunt serve` le permite ejecutar un servidor de desarrollo sencillo con watch/livereload habilitados. Además, JSHint y las pruebas unitarias correspondientes se ejecutan para los archivos modificados.
+* Se integra Bower para la gestión de paquetes.
+* Incluye subgeneradores Yeoman para directivas, servicios, parciales, filtros y módulos.
+* Se integra LESS e incluye Bootstrap a través de la fuente de los archivos LESS, lo que le permite volver a utilizar Bootstrap vars/mixins/etc.
+* Fácilmente comprobable - Cada subgenerador crea una prueba unitaria. Las pruebas unitarias se pueden ejecutar a través de `grunt test` y se ejecutan automáticamente que está activo la tarea `grunt serve`.
 
 Directorio de la aplicación
 -------------
@@ -26,8 +23,8 @@ Todos subgeneradores solicitan al usuario que especifique dónde guardar los arc
 
 En este ejemplo, el usuario ha optado por agrupar el proyecto en una carpeta `admin`, una carpeta `search`, y una carpeta `service`.
 
-    app.less ....................... main app-wide styles
-    app.js ......................... angular module initialization and route setup
+    application.less ............... main app-wide styles
+    application.js ................. angular module initialization and route setup
     index.html ..................... main HTML file
     Gruntfile.js ................... Grunt build file
     /admin ......................... example admin module folder
@@ -107,16 +104,16 @@ Cuando `grunt serve` se encuentra en ejecución, los archivos javascript modific
 Subgeneradores de GeneratorFrontend
 -------------
 
-Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS de manera predeterminada. Cada uno de estos subgeneradores hará lo siguiente: 
+Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS de manera predeterminada. Cada uno de estos subgeneradores hará lo siguiente:
 
-* Crear uno o más archivos de la arquitectura (javascript, less, html, spec, etc) para el tipo de componente. 
-* Actualizar index.html e incorporar las etiquetas `script` necesarias. 
-* Actualizar app.less e incorporar el `@import` según sea necesario. 
-* Para los parciales, actualizar app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones. 
+* Crear uno o más archivos de la arquitectura (javascript, less, html, spec, etc) para el tipo de componente.
+* Actualizar index.html e incorporar las etiquetas `script` necesarias.
+* Actualizar app.less e incorporar el `@import` según sea necesario.
+* Para los parciales, actualizar app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones.
 
-Hay subgeneradores para `directive`, `partial`, `service`, `filter`, `module`, y `modal`. 
+Hay subgeneradores para `directive`, `partial`, `service`, `filter`, `module`, y `modal`.
 
-Ejecución de un generador: 
+Ejecución de un generador:
 
     yo generator-frontend:directive     {{mi-directiva}}
     yo generator-frontend:partial       {{mi-partial}}
@@ -144,7 +141,7 @@ El proyecto incluirá una construcción prefabricada mediante Grunt que realizar
 * El uso de [grunt-ngmin] (https://github.com/btford/grunt-ngmin) a todos los métodos inyectables de AngularJS para realizar una minificación segura. De esta manera usted no tiene que utilizar la sintaxis de matrices.
 * Concatena y minifica los archivos JAVASCRIPT en un solo archivo. 
 * Sustituye a todas las referencias de scripts apropiados en `index.html` con el archivo CSS y JS minificados. 
-* Minifica cualquier imagen en `/ img`. 
+* Minifica cualquier imagen en `/img`. 
 * Minifica el `index.html`. 
 * Copia todos los archivos adicionales necesarios para una construcción distribuida (por ej. Ficheros Font-Awesome, etc). 
 
