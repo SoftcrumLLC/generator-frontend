@@ -1,10 +1,11 @@
 #GeneratorFrontend
 
 >Generador de aplicaciones frontend con AngularJS empleado la arquitectura SinglePage
-
-This generator follows the [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
+>
+>Este generador se encuentra desarrollado bajo las buenas prácticas y tendencias en el desarrollo de software web con AngularJS - [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
 Principales características
+-------------
 
 * Provides a directory structure geared towards large Angular projects.
     * Each controller, service, filter, and directive are placed in their own file.
@@ -20,6 +21,7 @@ Principales características
 
 Directorio de la aplicación
 -------------
+
 All subgenerators prompt the user to specify where to save the new files.  Thus you can create any directory structure you desire, including nesting.  The generator will create a handful of files in the root of your project including `index.html`, `app.js`, and `app.less`.  You determine how the rest of the project will be structured.
 
 In this example, the user has chosen to group the app into an `admin` folder, a `search` folder, and a `service` folder.
@@ -113,75 +115,27 @@ Hay un conjunto de subgeneradores que inicializan los componentes de AngularJS d
 * Actualizar app.less e incorporar el `@import` según sea necesario. 
 * Para los parciales, actualizar los app.js, incorporando la llamada ruta necesaria si una ruta se introduce en el generador de instrucciones. 
 
-Hay generadores para `directive`,` partial`, `service`,` filter`, `module`, y `modal`. 
+Hay generadores para `directive`, `partial`, `service`, `filter`, `module`, y `modal`. 
 
 Ejecución de un generador: 
 
-    yo generator-frontend:directive     my-awesome-directive
-    yo generator-frontend:partial       my-partial
-    yo generator-frontend:service       my-service
-    yo generator-frontend:filter        my-filter
-    yo generator-frontend:module        my-module
-    yo generator-frontend:modal         my-modal
+    yo generator-frontend:directive     {{my-directiva}}
+    yo generator-frontend:partial       {{my-partial}}
+    yo generator-frontend:service       {{mi-servicio}}
+    yo generator-frontend:filter        {{mi-filtro}}
+    yo generator-frontend:module        {{mi-modulo}}
+    yo generator-frontend:modal         {{mi-modal}}
+
+El subgenerador modal es un atajo conveniente para crear el componente que funcionan como verbos modales para Bootstrap v3.2 y Angular-UI-Bootstrap v0.11 (ambos vienen preconfigurados con este generador). Si usted decide no utilizar cualquiera de estas bibliotecas, simplemente no utilice el subgenerador modal.
 
 
-El Parámetro del nombre pasado (es decir, 'mi-impresionante-Directiva ») se utilizará como los nombres de los archivos. Los generadores se derivarán nombres genéricos apropiados de este parámetro (ex. 'Mi-impresionante-directiva' se convertirá en un nombre de clase de 'MyAwesomeDirective'). Cada sub-generador le pedirá la carpeta en la que para crear los nuevos archivos de esqueleto. Puede anular la carpeta predeterminada para cada sub-generador en el archivo .yo-rc.json` `. 
-
-El subgenerator modal es un atajo conveniente para crear los parciales que funcionan como verbos modales para Bootstrap v3.1 y Angular-UI-Bootstrap v0.10 (ambos vienen preconfigurados con este generador). Si usted decide no utilizar cualquiera de estas bibliotecas, simplemente no utilice el subgenerator modal. 
-
-Subgenerators también son personalizables. Por favor, lea [CUSTOMIZING.md] (CUSTOMIZING.md) para más detalles.
-
-
-
-There are a set of subgenerators to initialize empty Angular components.  Each of these generators will:
-
-* Create one or more skeleton files (javascript, LESS, html, spec etc) for the component type.
-* Update index.html and add the necessary `script` tags.
-* Update app.less and add the @import as needed.
-* For partials, update the app.js, adding the necessary route call if a route was entered in the generator prompts.
-
-There are generators for `directive`,`partial`,`service`, `filter`, `module`, and `modal`.
-
-Running a generator:
-
-    yo cg-angular:directive my-awesome-directive
-    yo cg-angular:partial my-partial
-    yo cg-angular:service my-service
-    yo cg-angular:filter my-filter
-    yo cg-angular:module my-module
-    yo cg-angular:modal my-modal
-
-The name paramater passed (i.e. 'my-awesome-directive') will be used as the file names.  The generators will derive appropriate class names from this parameter (ex. 'my-awesome-directive' will convert to a class name of 'MyAwesomeDirective').  Each sub-generator will ask for the folder in which to create the new skeleton files.  You may override the default folder for each sub-generator in the `.yo-rc.json` file.
-
-The modal subgenerator is a convenient shortcut to create partials that work as modals for Bootstrap v3.1 and Angular-UI-Bootstrap v0.10 (both come preconfigured with this generator).  If you choose not to use either of these libraries, simply don't use the modal subgenerator.
-
-Subgenerators are also customizable.  Please read [CUSTOMIZING.md](CUSTOMIZING.md) for details.
-
-
-
-
-
-
-
-Submodules
+Creación de submódulos
 -------------
 
-Submodules allow you to more explicitly separate parts of your application.  Use the `yo cg-angular:module my-module` command and specify a new subdirectory to place the module into.  Once you've created a submodule, running other subgenerators will now prompt you to select the module in which to place the new component.
+Los submódulos permiten partes más separadas explícitamente en su proyecto. Utilice el comando `yo-cg angular:module mi-modulo` y especifique un nuevo subdirectorio para colocar el módulo. Una vez que se haya creado el submódulo, ahora pedirá que seleccione el módulo en el que colocar el nuevo componente.
 
 
-
-
-
-
-
-Preconfigured Libraries
--------------
-
-The new app will have a handful of preconfigured libraries included.  This includes Angular 1.2, Bootstrap 3, AngularUI Bootstrap, AngularUI Utils, FontAwesome 4, JQuery 2, Underscore 1.5, LESS 1.6, and Moment 2.5.  You may of course add to or remove any of these libraries.  But the work to integrate them into the app and into the build process has already been done for you.
-
-
-
-Build Process
+Proceso de compilación del proyecto
 -------------
 
 The project will include a ready-made Grunt build that will:
